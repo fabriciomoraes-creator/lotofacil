@@ -1,0 +1,14 @@
+{
+  "name": "lotofacil",
+  "version": "1.0.0",
+  "description": "Projeto para lotofacil",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo \"Nenhum processo de build configurado\""
+  },
+  "keywords": [],
+  "author": "fabriciomoraes-creator",
+  "license": "MIT",
+  "dependencies": {}
+}

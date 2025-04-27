@@ -13,16 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
+    - name: Setup Git
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build project
-      run: npm run build
+    - name: Create gh-pages branch if it doesn't exist
+      run: |
+        git fetch origin gh-pages || echo "gh-pages branch doesn't exist"
+        git checkout gh-pages || git checkout --orphan gh-pages
+        git reset --hard
+        git clean -xdf
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
